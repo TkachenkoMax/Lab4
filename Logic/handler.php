@@ -7,6 +7,10 @@ require_once 'PageRank.php';
 $mainPage = $_POST['link'];
 $iterationsAmount = $_POST['iterations'];
 
+$urlParse = parse_url($mainPage);
+
+$mainPage = $urlParse['scheme'] . '://' . $urlParse['host'] . '/';
+
 $linksToVisit[] = $mainPage;
 
 $siteTree = new SiteTree();
